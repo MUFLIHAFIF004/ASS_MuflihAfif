@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: rgb(4, 189, 245);
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .comment-section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    #commentInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    #commentButton {
+      width: 100%;
+      padding: 10px;
+      background-color: rgb(4, 189, 245);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #commentList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .comment {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Beranda</a>
+</div>
+
+<div class="comment-section">
+    <h3>Berikan komentar pada saya</h3>
+    <textarea id="commentInput" placeholder="Tulis komentar"></textarea>
+    <button id="commentButton" onclick="addComment()" onclick="showAlert()">Tambah Komentar</button>
+        <ul id="commentList"></ul>
+</div>
+
+<script>
+    function showAlert () {
+        alert("Terimakasih telah Mengomentari")
+    }
+    function addComment() {
+
+    var commentText = document.getElementById('commentInput').value;
+
+    var listItem = document.createElement('li');
+    listItem.className = 'comment';
+    listItem.appendChild(document.createTextNode(commentText));
+
+    var commentList = document.getElementById('commentList');
+    commentList.appendChild(listItem);
+
+    document.getElementById('commentInput').value = '';
+    
+  }
+</script>
+
+</body>
+</html>
